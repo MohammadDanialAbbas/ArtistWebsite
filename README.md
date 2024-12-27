@@ -1,7 +1,8 @@
 # ArtistWebsite
 A webpage for artists to add and manage artworks and for users to be able to view and somewhat interact such as liking an image, some issues remain but no longer updated.
 
-List of files and their purpose:
+file names essentially describe what file does
+List of files:
 1. public
 -addArtwork.js
 -addWorkshop.js
@@ -32,6 +33,7 @@ Instructions:
 3. go on browser and search localhost:3000
 Stylistic Design Decisions:
 used ul and li for formatting it like a list
+
+
 Functionality Design Decisions:
 1.used li for readability, resized image in artwork for usability
-Function names essentially describe what function does
