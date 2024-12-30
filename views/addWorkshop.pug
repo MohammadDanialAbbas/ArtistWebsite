@@ -1,0 +1,10 @@
+head 
+    title Open Gallery Create Artwork Page 
+body    
+    form#createArtworkForm(action='/addWorkshop', method='POST', onsubmit='addWorkshop(); return false;')
+        label(for='Title') Title:
+        input(type='text', name='Title', id='Title', required)
+        br
+        button(type='submit', value='Submit') add
+
+        script(src='/addWorkshop.js')    

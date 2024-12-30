@@ -1,0 +1,22 @@
+head
+    title #{artwork.name}
+    script(src="/artworkPage.js") 
+body
+    include ./header.pug         
+    h1 #{artwork.Title}
+    img(src=artwork.Poster,alt=artwork.Title,style='width:50%;height:50%')
+    br
+    a Artist: 
+    a(href=`/user/${artwork.Artist}`)= artwork.Artist
+    p Year: #{artwork.Year}
+    p Category: #{artwork.Category}
+    p Medium: #{artwork.Medium}
+    p Description: #{artwork.Description}
+    p likes: #{likes}
+    if (suser.username != user.username && suser.likedArtworks!= undefined) 
+        if (suser.likedArtworks.includes(artwork.Title))
+            button(id='unlike', data-artwork=artwork.Title, onclick='unlike()') Unlike
+        else
+            button(id='like', data-artwork=artwork.Title, onclick='like()') Like
+    else
+        button(id='like', data-artwork=artwork.Title, onclick='like()') Like

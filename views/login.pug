@@ -1,0 +1,14 @@
+head 
+    title Open Gallery Login Page 
+body    
+    a(href='/signup') Create Account
+    form#signinForm(action='/login', method='POST', onsubmit='signin(); return false;')
+        label(for='username') Username:
+        input(type='text', name='username', id='username', required)
+        br
+        label(for='password') Password:
+        input(type='text', name='password', id='password',required)
+        br
+        button(type='submit', value='Submit') Sign In
+
+        script(src='signin.js')

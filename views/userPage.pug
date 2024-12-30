@@ -1,0 +1,46 @@
+head
+	title #{user.username} - #{user.type}
+	script(src='/userPage.js')
+
+body
+	include ./header.pug
+	h1 #{user.type} #{user.username}'s profile
+	if (user.type == "Artist") 
+		if (suser.username == user.username)
+			a(href=`/addArtwork`) Add Artwork 
+			br
+			a(href=`/addWorkshop`) Add Workshop
+			br
+			button(id='ConvertToPatreon', data-artist=suser.username, onclick='convertToPatreon()') convert to patreon
+
+		h2 Artworks by #{user.username}:
+		if artworks.length >0 
+			UL
+			each artwork in artworks
+				li
+					a(href=`/artworks/${artwork.Title}`)= artwork.Title
+					br
+		if workshops.length > 0
+			h2 Workshops:
+			ul
+				each workshop in workshops
+					li= workshop.Title
+		else
+			p No workshops available
+	else 
+		if (suser.username == user.username)
+			button(id='ConvertToArtist', data-artist=suser.username, onclick='convertToArtist()') convert to artist
+
+	if user.followedArtists != undefined 
+		h2 Followed by #{user.username}
+		each Artist in user.followedArtists
+			li
+				a(href=`/user/${Artist}`) #{Artist}
+				br
+	if ((suser.username != user.username) && (suser.followedArtists.length> 0))
+		if (suser.followedArtists.includes(user.username))
+			button(id='unfollowButton', data-artist=user.username, onclick='unfollowArtist()') Unfollow
+		else
+			button(id='followButton', data-artist=user.username, onclick='followArtist()') Follow
+	else if (suser.username != user.username) 
+		button(id='followButton', data-artist=user.username, onclick='followArtist()') Follow

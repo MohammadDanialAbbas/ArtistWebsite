@@ -1,0 +1,11 @@
+html
+  head 
+    title Artworks 
+  body
+    include ./header.pug     
+    h1 Here are the Artworks
+    each artwork in artworks
+      li
+        a(href=`/artworks/${artwork.Title}`)= artwork.Title + ' By ' + artwork.Artist
+        br
+      

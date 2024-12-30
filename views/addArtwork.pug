@@ -1,0 +1,25 @@
+head 
+    title Open Gallery Create Artwork Page 
+body    
+    form#createArtworkForm(action='/addArtwork', method='POST', onsubmit='addArtwork(); return false;')
+        label(for='Title') Title:
+        input(type='text', name='Title', id='Title', required)
+        br
+        label(for='Year') Category:
+        input(type='text', name='Year', id='Year', required)
+        br
+        label(for='Category') Category:
+        input(type='text', name='Category', id='Category', required)
+        br
+        label(for='Medium') Medium:
+        input(type='text', name='Medium', id='Medium',required)
+        br
+        label(for='Description') Description:
+        input(type='text', name='Description', id='Description',required)
+        br
+        label(for='Poster') Link to Poster:
+        input(type='text', name='Poster', id='Poster',required)
+        br
+        button(type='submit', value='Submit') add
+
+        script(src='/addArtwork.js')    
